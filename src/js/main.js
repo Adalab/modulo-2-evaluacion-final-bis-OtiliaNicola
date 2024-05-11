@@ -1,11 +1,13 @@
 'use strict';
 //variables globales
 const ulList = document.querySelector('.js_users');
+const saveBtn = document.querySelector('.js_btnSave');
+const recoverBtn = document.querySelector('js_btnRecover');
 let usersData = []; //array vacío
 const url = "https://randomuser.me/api/?results=10";
+
 //Funciones
-//10 usuarios al azar
-function renderRandom(user) {
+function renderRandom(user) {//10 usuarios al azar
     return `<li  id="${user.id.value}" class="user-li js_list">
         <img src="${user.picture.large}"/>
         <h3> ${user.name.first} ${user.name.last}</h3>
@@ -13,29 +15,18 @@ function renderRandom(user) {
         <p>${user.login.username}</p>
     </li>`;
 }
-//marco como amigo y renderizo la lista nuevamente
-const addFriend = (ev) =>{
-    //console.log(ev.currentTarget.id.value);
-    //obtener todos los datos del usuario
-    const liClikedId = ev.currentTarget.id;
-    console.log('holis', liClikedId);
-    const clikedUsersData = usersData.find((item)=>item.id.value === liClikedId);
-    //añadir al array fiends el usuarios clicado
-    usersFriends.push(clikedUsersData);
-    //cuando clico sobre el usuario añado la propiedad
-    clikedUsersData.isFriend === true;
-    //console.log(clikedUsersData);
-    //vuelvo a renderizar la lista nuevamente
-    renderUsers();
+
+function addFriend(ev) {
+    const liClikedId = ev.currentTarget.id; //obtener todos los datos del usuario
+    const clikedUsersData = usersData.findIndex((item) => item.id.value === liClikedId);
+    usersData[clikedUsersData].isFriend = true;
+    renderUsers(); //vuelvo a renderizar la lista nuevamente
 }
-//función para renderizar la lista de usuarios
-function renderUsers(){
-    //limpiar el contenid actual de la li
-    ulList.innerHTML='';
+
+function renderUsers() {//función para renderizar la lista de usuarios
+    ulList.innerHTML = '';//limpiar el contenid actual de la li
     usersData.forEach(user => {
-        //que se cambie el color en funcion de si es amigo o no
-        //                      condicion ?      verdad    falso
-        const backgroundColor = user.isFriend ? 'pink' : 'initial';
+        const backgroundColor = user.isFriend ? 'pink' : '#a3e2f5';
         const usersHTML = `<li  id="${user.id.value}" class="user-li js_list" style="background-color: ${backgroundColor}">
         <img src="${user.picture.large}"/>
         <h3> ${user.name.first} ${user.name.last}</h3>
@@ -44,11 +35,10 @@ function renderUsers(){
     </li>`;
         ulList.innerHTML += usersHTML;
     })
-    //añado el evento click nuevamente a mis elementos
-    renderFriends();
+    renderFriends();//añado el evento click nuevamente a mis elementos
 }
-//Evento click al elemento con la función:
-function renderFriends(){
+
+function renderFriends() {//Evento click al elemento con la función:
     const allUserLi = document.querySelectorAll('.js_list');
     for (const li of allUserLi) {
         li.addEventListener('click', addFriend);
@@ -56,14 +46,25 @@ function renderFriends(){
 }
 const getData = () => {
     fetch(url)
-    .then(response=> response.json())
-    .then((dataApi)=>{
-        usersData = dataApi.results;
-        usersData.forEach(user => {
-            ulList.innerHTML += renderRandom(user);
+        .then(response => response.json())
+        .then((dataApi) => {
+            usersData = dataApi.results;
+            renderUsers();
+            localStorage.setItem("userData", JSON.stringify(usersData));
         });
-    localStorage.setItem("userData", JSON.stringify(usersData));
-    });
 };
-//se ejecuta cuando carga la págima
-getData();
+
+function handleSave(event){
+    event.preventDefault();
+    localStorage.setItem("userData", JSON.stringify(usersData));
+}
+
+function handleRecover(event){
+    event.preventDefault();
+    const savedUsers = JSON.parse(localStorage.getItem(usersData)) || [];
+    usersData=savedUsers;
+    renderUsers();
+}
+getData();//se ejecuta cuando carga la págima
+saveBtn.addEventListener('click', handleSave);
+recoverBtn.addEventListener('click', handleRecover);
