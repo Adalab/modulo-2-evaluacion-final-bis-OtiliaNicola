@@ -27,7 +27,8 @@ function saveCleanedUserData(usersListFromApi){
 }
 
 function renderRandom(user) {//10 usuarios al azar
-    return `<li  id="${user.id}" class="user-li js_list">
+    const backgroundColor = user.isFriend ? 'pink' : '#a3e2f5';
+    return `<li  id="${user.id}" class="user-li js_list" style="background-color: ${backgroundColor}">
         <img src="${user.userImage}"/>
         <h3> ${user.userCompleteName}</h3>
         <p>${user.city}</p>
@@ -38,23 +39,9 @@ function renderRandom(user) {//10 usuarios al azar
 function renderUsers() {//función para renderizar la lista de usuarios
     ulList.innerHTML = '';//limpiar el contenid actual de la li
     usersData.forEach(user => {
-        const backgroundColor = user.isFriend ? 'pink' : '#a3e2f5';
-        const usersHTML = `<li  id="${user.id}" class="user-li js_list" style="background-color: ${backgroundColor}">
-        <img src="${user.userImage}"/>
-        <h3> ${user.userCompleteName}</h3>
-        <p>${user.city}</p>
-        <p>${user.username}</p>
-    </li>`;
-        ulList.innerHTML += usersHTML;
+        ulList.innerHTML += renderRandom(user);
     })
     renderFriends();//añado el evento click nuevamente a mis elementos
-}
-
-function renderFriends() {//Evento click al elemento con la función:
-    const allUserLi = document.querySelectorAll('.js_list');
-    for (const li of allUserLi) {
-        li.addEventListener('click', addFriend);
-    }
 }
 
 function addFriend(ev) {
@@ -62,6 +49,13 @@ function addFriend(ev) {
     const clikedUsersData = usersData.findIndex((item) => item.id === liClikedId);
     usersData[clikedUsersData].isFriend = true;
     renderUsers(); //vuelvo a renderizar la lista nuevamente
+}
+
+function renderFriends() {//Evento click al elemento con la función:
+    const allUserLi = document.querySelectorAll('.js_list');
+    for (const li of allUserLi) {
+        li.addEventListener('click', addFriend);
+    }
 }
 
 function handleSave(event){
