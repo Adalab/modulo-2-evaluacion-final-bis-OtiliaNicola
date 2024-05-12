@@ -26,7 +26,7 @@ function saveCleanedUserData(usersListFromApi){
     renderUsers();
 }
 
-function renderRandom(user) {//10 usuarios al azar
+function renderRandom(user) {
     const backgroundColor = user.isFriend ? 'pink' : '#a3e2f5';
     return `<li  id="${user.id}" class="user-li js_list" style="background-color: ${backgroundColor}">
         <img src="${user.userImage}"/>
