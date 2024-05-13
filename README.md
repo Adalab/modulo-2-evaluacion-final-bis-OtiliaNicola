@@ -16,7 +16,7 @@ Al recargar la página y actualizarse los usuarios mostrados al azar, si hacemos
 Para acceder al proyecto pues clonar el repositorio:
 
 ```bash
-git clone : https://github.com/Adalab/modulo-2-evaluacion-final-OtiliaNicola.git
+git clone : https://github.com/Adalab/modulo-2-evaluacion-final-bis-OtiliaNicola.git
 ```
 
 ### 🛠️Abre y ejecuta el proyecto
