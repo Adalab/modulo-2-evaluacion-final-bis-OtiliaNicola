@@ -1,16 +1,16 @@
 'use strict';
-//variables globales
+//Variables globales
 const ulList = document.querySelector('.js_users');
 const saveBtn = document.querySelector('.js_btnSave');
 const recoverBtn = document.querySelector('.js_btnRecover');
-let usersData = []; //array vacío
+let usersData = []; //Array vacío
 const url = "https://randomuser.me/api/?results=10";
 
 //Funciones
 function saveCleanedUserData(usersListFromApi){
     // Limpiar los datos que ya existiesen en el array
     usersData = [];
-    // Recorremos el listado y añadimos solo la información que necesitamos
+    // Recorrer el listado y añadir solo la información que necesita
     usersListFromApi.forEach(user=>{
         const transformedUser = {
             id: user.login.uuid,
@@ -19,10 +19,10 @@ function saveCleanedUserData(usersListFromApi){
             city: user.location.city,
             username: user.login.username,
         };
-        // Añado al listado el usuario con los datos en limpio
+        // Añadir al listado el usuario con los datos en limpio
         usersData.push(transformedUser);
     });
-    // cuando terminamos de recorrer la colección renderizamos los datos
+    // Termina de recorrer la colección renderiza los datos
     renderUsers();
 }
 
@@ -36,19 +36,19 @@ function renderRandom(user) {
     </li>`;
 }
 
-function renderUsers() {//función para renderizar la lista de usuarios
-    ulList.innerHTML = '';//limpiar el contenid actual de la li
+function renderUsers() {//Función para renderizar la lista de usuarios
+    ulList.innerHTML = '';//Limpiar el contenido actual de la li
     usersData.forEach(user => {
         ulList.innerHTML += renderRandom(user);
     })
-    renderFriends();//añado el evento click nuevamente a mis elementos
+    renderFriends();//Añadir el evento click nuevamente a mis elementos
 }
 
 function addFriend(ev) {
-    const liClikedId = ev.currentTarget.id; //obtener todos los datos del usuario
+    const liClikedId = ev.currentTarget.id; //Obtener todos los datos del usuario
     const clikedUsersData = usersData.findIndex((item) => item.id === liClikedId);
     usersData[clikedUsersData].isFriend = true;
-    renderUsers(); //vuelvo a renderizar la lista nuevamente
+    renderUsers(); //Renderizar la lista nuevamente
 }
 
 function renderFriends() {//Evento click al elemento con la función:
@@ -78,6 +78,6 @@ const getData = () => {
         });
 };
 
-getData();//se ejecuta cuando carga la págima
+getData();//Se ejecuta cuando carga la págima
 saveBtn.addEventListener('click', handleSave);
 recoverBtn.addEventListener('click', handleRecover);
