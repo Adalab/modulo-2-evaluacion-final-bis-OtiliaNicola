@@ -18,7 +18,7 @@ When the page is reloaded and the randomly displayed users are refreshed, if we 
 
 To access the project then clone the repository:
 
-````bash
+```bash
 git clone : https://github.com/Adalab/modulo-2-evaluacion-final-bis-OtiliaNicola.git
 ```
 
@@ -31,6 +31,7 @@ To view it in the browser:
 ```bash
 npm install
 ```
+
 ```bash
 npm start
 ```
