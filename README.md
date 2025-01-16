@@ -14,7 +14,7 @@ When the page is reloaded and the randomly displayed users are refreshed, if we 
 
 ---
 
-## 📁Access to the project
+## 📁 Access to the project
 
 To access the project then clone the repository:
 
@@ -24,7 +24,7 @@ git clone : https://github.com/Adalab/modulo-2-evaluacion-final-bis-OtiliaNicola
 
 ---
 
-## 🛠️Abre and run the project
+## 🛠️ Open and run the project
 
 To view it in the browser:
 
@@ -38,7 +38,7 @@ npm start
 
 ---
 
-### ✅Technologies used
+### ✅ Technologies used
 
  ![image](https://github.com/luciadelafuente/project-promo-x-module-2-team-1/assets/162286245/9f4280a4-c68e-4329-9d17-032d7c795822)
  ![image](https://github.com/luciadelafuente/project-promo-x-module-2-team-1/assets/162286245/425c71c8-9e17-485a-8ea0-fdbba2b73d19)
