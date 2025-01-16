@@ -1,36 +1,37 @@
 # TWITTERLAB
 
-Se trata de una web en la que al cargar la página nos muestra 10 usuarios al azar, obteniendo los resultados de https://randomuser.me/api/?results=10 . También podemos añadir a amigo los usuarios que queramos. Para saber si se añadió correctamente hemos añadido una propiedad para que cambie de color al hacer click en el usuario.
+This is a website that shows us 10 random users when we load the page, obtaining the results from https://randomuser.me/api/?results=10 . We can also add as many users as we want to friend. To know if it was added correctly we have added a property to change colour when you click on the user.
 
-Además cuenta con dos botones:
+It also has two buttons:
 
-- Guardar datos
+- Save data
 
-Se encarga de guardar los datos que nos muestra el navegador en el momento. 
+It is in charge of saving the data that the browser shows us at the moment. 
 
-- Recuperar datos
+- Retrieve data
 
-Al recargar la página y actualizarse los usuarios mostrados al azar, si hacemos click en el botón podemos recuperar los datos guardados.
-## 📁Acceso al proyecto
+When the page is reloaded and the randomly displayed users are refreshed, if we click on the button we can retrieve the saved data.
 
-Para acceder al proyecto pues clonar el repositorio:
+## 📁Access to the project
 
-```bash
+To access the project then clone the repository:
+
+````bash
 git clone : https://github.com/Adalab/modulo-2-evaluacion-final-bis-OtiliaNicola.git
 ```
 
-### 🛠️Abre y ejecuta el proyecto
+### 🛠️Abre and run the project
 
-Para visualizarlo en el navegador:
+To view it in the browser:
 
-```bash
+````bash
 npm install
 ```
-```bash
+````bash
 npm start
 ```
 
-### ✅Tecnologías utilizadas
+### ✅Technologies used
 
  ![image](https://github.com/luciadelafuente/project-promo-x-module-2-team-1/assets/162286245/9f4280a4-c68e-4329-9d17-032d7c795822)
  ![image](https://github.com/luciadelafuente/project-promo-x-module-2-team-1/assets/162286245/425c71c8-9e17-485a-8ea0-fdbba2b73d19)
