@@ -12,6 +12,8 @@ It is in charge of saving the data that the browser shows us at the moment.
 
 When the page is reloaded and the randomly displayed users are refreshed, if we click on the button we can retrieve the saved data.
 
+---
+
 ## 📁Access to the project
 
 To access the project then clone the repository:
@@ -20,16 +22,20 @@ To access the project then clone the repository:
 git clone : https://github.com/Adalab/modulo-2-evaluacion-final-bis-OtiliaNicola.git
 ```
 
-### 🛠️Abre and run the project
+---
+
+## 🛠️Abre and run the project
 
 To view it in the browser:
 
-````bash
+```bash
 npm install
 ```
-````bash
+```bash
 npm start
 ```
+
+---
 
 ### ✅Technologies used
 
